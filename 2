@@ -1,0 +1,14 @@
+a = input().split()
+x = ["w", "a", "z", "u", "p"]
+
+for i in a:
+    T = True
+    if len(i) > 5:
+        for q in x:
+            if q not in i.lower():
+                T = False
+    else:
+        continue
+    if not T:
+        continue
+    print(i)
