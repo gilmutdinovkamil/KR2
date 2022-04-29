@@ -1,0 +1,40 @@
+import random
+
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+
+    def hit(self):
+        h = random.random()
+        if h >= 0.8:
+            return False
+        elif h < 0.8:
+            return True
+
+
+class Game:
+    def __init__(self, Player_1, Player_2):
+        self.Player_1 = Player_1
+        self.Player_2 = Player_2
+
+
+    def start(self):
+        p10 = 0
+        p20 = 0
+        while p10 < 11 or p20 < 11:
+            if not Player_1.hit():
+                p20 += 1
+            elif not Player_2.hit():
+                p10 += 1
+
+        if p10 == 11:
+            return Player_1.name
+        elif p20 == 11:
+            return Player_2.name
+
+
+Player_1 = Player('Player_1')
+Player_2 = Player('Player_2')
+game = Game(Player_1, Player_2)
+print(game.start())
